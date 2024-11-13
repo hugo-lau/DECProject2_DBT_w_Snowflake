@@ -1,17 +1,15 @@
-adventureworks:
-  target: dev
+DEC_PROJECT2_BIGDATAETL:
   outputs:
     dev:
-      type: snowflake
-      account: yo11087.ca-central-1.aws
-
-      # User/password auth
-      user: '{{ env_var("SNOWFLAKE_USERNAME") }}'
+      account: wc86749.ca-central-1.aws
+      client_session_keep_alive: false
+      database: dec_dvd_rental
       password: '{{ env_var("SNOWFLAKE_PASSWORD") }}'
-
       role: accountadmin
-      database: adventureworks
-      warehouse: compute_wh
       schema: raw
       threads: 12
-      client_session_keep_alive: False
+      type: snowflake
+      user: '{{ env_var("SNOWFLAKE_USERNAME") }}'
+      warehouse: DEC_PROJECT2_BIGDATAETL
+  target: dev
+

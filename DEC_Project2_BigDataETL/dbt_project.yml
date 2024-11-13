@@ -2,12 +2,12 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'adventureworks'
+name: 'DEC_PROJECT2_BIGDATAETL'
 version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'adventureworks'
+profile: 'DEC_PROJECT2_BIGDATAETL'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -25,7 +25,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 models:
-  adventureworks:
+  DEC_PROJECT2_BIGDATAETL:
+    staging:
+      +materialized: table
+      +schema: staging
     marts:
       +materialized: table
       +schema: marts

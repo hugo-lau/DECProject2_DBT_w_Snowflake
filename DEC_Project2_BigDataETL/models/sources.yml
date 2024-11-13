@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: dvd_rental
-    database: warehouse
+    database: dec_dvd_rental
     schema: raw
     tables:
       - name: actor
