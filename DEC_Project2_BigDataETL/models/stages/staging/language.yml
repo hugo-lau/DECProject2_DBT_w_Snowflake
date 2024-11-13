@@ -1,0 +1,11 @@
+models:
+  - name: language
+    columns:
+      - name: language_id
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - accepted_values:
+              values: ["English", "Italian", "Japanese", "Mandarin", "French", "German"]

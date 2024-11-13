@@ -1,0 +1,7 @@
+models:
+  - name: actor
+    columns:
+      - name: actor_id
+        tests:
+          - unique
+          - not_null
