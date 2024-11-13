@@ -2,7 +2,4 @@
 target/
 dbt_packages/
 logs/
-DEC_Project2_BigDataETL/
-!DEC_Project2_BigDataETL/*
-
 .user.yml
