@@ -4,12 +4,12 @@ DEC_PROJECT2_BIGDATAETL:
       account: qtkwtox-xm91574
       client_session_keep_alive: false
       database: dec_dvd_rental
-      password: 2024@Sepnsp
+      password: 
       role: accountadmin
       schema: raw
       threads: 12
       type: snowflake
-      user: suphineneo
+      user: 
       warehouse: large_wh
   target: dev
 
