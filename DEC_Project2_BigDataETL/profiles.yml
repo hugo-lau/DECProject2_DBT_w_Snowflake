@@ -1,15 +1,15 @@
 DEC_PROJECT2_BIGDATAETL:
   outputs:
     dev:
-      account: wc86749.ca-central-1.aws
+      account: qtkwtox-xm91574
       client_session_keep_alive: false
       database: dec_dvd_rental
-      password: '{{ env_var("SNOWFLAKE_PASSWORD") }}'
+      password: 2024@Sepnsp
       role: accountadmin
       schema: raw
       threads: 12
       type: snowflake
-      user: '{{ env_var("SNOWFLAKE_USERNAME") }}'
-      warehouse: DEC_PROJECT2_BIGDATAETL
+      user: suphineneo
+      warehouse: large_wh
   target: dev
 
