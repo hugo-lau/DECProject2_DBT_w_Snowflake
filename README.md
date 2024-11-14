@@ -38,6 +38,14 @@ Here's a high-level sequence of the pipeline solution:
 3. DBT will be responsible DAG formation based on data formation
 4. Semantic modeling and visualization - a tool such as Preset or PowerBI will be used to visualize the data reports.
 
+High-Level Flow so far:
+Source Database for DVD_Rental (RDS, Postgres) --> Airbyte --> Snowflake (raw tables)
+Snowflake (raw tables) --> DBT --> Snowflake (staging tables)
+Snowflake staging tables --> DBT --> Snowflake (mart tables/dim_tables)
+Snowflake (mart tables/dim_tables) --> fact_table
+then report sale (one big table)
+
+
 Depending on costs, we may host locally before seeing it can be deployed on EC2
 
 # Breakdown of Tasks
