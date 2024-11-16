@@ -33,6 +33,9 @@ Due to limited time, we limiting our dataset to above, with purpose of using the
 
 ## Solution architecture
 
+![](images/Snowflake-dbt_ELT_Architecture.jpg)
+
+
 Here's a high-level sequence of the pipeline solution:
 
 1. The source , DVD Rental Database, will be either loaded into the RDS database. This database can be accessible through postgres.
