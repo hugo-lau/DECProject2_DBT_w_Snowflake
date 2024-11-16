@@ -5,12 +5,9 @@ WORKDIR /app
 
 COPY . .
 
-COPY requirements.txt .
 
-ENV SNOWFLAKE_USERNAME
+ENTRYPOINT ["/bin/bash", "build_dbt.sh"]
 
-RUN pip install -r requirements.txt 
+# CMD ["dbt", "run"]
 
-# ENTRYPOINT ["/bin/bash", "build_dbt.sh"]
-
-CMD ["dbt", "run"]
+CMD ["dbt", "run", "--select", "staging.*", "--exclude", "marts.*+"]
