@@ -1,6 +1,5 @@
 
-# Hugo-Lab-ETL
-=======
+
 # DEC Project#2 - Big Data ETL
 # Objective
 
