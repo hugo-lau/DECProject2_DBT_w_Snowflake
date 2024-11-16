@@ -100,5 +100,3 @@ Logs showing the successul run of snowflake-dbt docker container on ECS
 
 
 
-
->>>>>>> e8f433f3c070dc12e0b546905d091764cd17425b
