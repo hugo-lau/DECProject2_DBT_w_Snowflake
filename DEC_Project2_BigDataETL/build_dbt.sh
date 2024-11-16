@@ -1,3 +1,3 @@
-cd warehouse
+
 dbt deps
-dbt build --target prod
+dbt build --target dev
