@@ -4,12 +4,15 @@
 # DEC Project#2 - Big Data ETL
 # Objective
 
-This project will explore building a big data ETL pipeline solution using the lessons learnt such as:
-> - data integration tools like Airbyte
-> - cluster compute engines to transform data such as Snowflake
-> - Create DAGs for transformations using dbt
-> - data quality tests for using transformations using dbt tests
-> - host this solution on the AWS cloud
+This project will explore building a big data ETL pipeline solution on the AWS cloud. The solution will utilize lessons learn in past few weeks to.
+The source database containing the dvd_rental information is hosted in the RDS database. We will spin up an EC2 instance on AWS, to host a data ingestion tool called airbyte.
+We will access the airbyte instance through EC2 instaince public dns IP on web browers, and schedule/trigger a replication sync to replicate the data in raw format to a snowflake warehouse.
+From there, we have build another docker container, hosting the dbt-snowflake package.
+Running this application on ECS, will trigger data modelling techniques used to transform the data useable for business outcomes.
+Will be transforming data from raw, to staging, to marts/dimensioning and fact tables along with big tables.
+Additionally, custom transformation techniques will be used to answer specific business questions.
+
+Both Airbyte replication and Docker dbt-snowflake data can be triggered manually online or scheduled one after the other.
 
 ## Consumers
 The end users would be analysts from the sales and marketing team who will need to generate sales and customer reports.
@@ -33,105 +36,68 @@ Due to limited time, we limiting our dataset to above, with purpose of using the
 
 Here's a high-level sequence of the pipeline solution:
 
-1. The source , DVD Rental Database, will be either loaded into the local computer by postgres or on the RDS database depending on cost
-2. Airbyte will ingest the source data into Data Warehouse Snowflake
-3. DBT will be responsible DAG formation based on data formation
+1. The source , DVD Rental Database, will be either loaded into the RDS database. This database can be accessible through postgres.
+2. Airbyte hosted on EC2 instance will ingest the source data into Data Warehouse Snowflake
+3. From there, a snowflake-dbt package in a container will do the data transformation based on the data modelling techniques used, taking through staging, marts along with dimensioning and fact tables. 
 4. Semantic modeling and visualization - a tool such as Preset or PowerBI will be used to visualize the data reports.
 
 High-Level Flow so far:
 Source Database for DVD_Rental (RDS, Postgres) --> Airbyte --> Snowflake (raw tables)
 Snowflake (raw tables) --> DBT --> Snowflake (staging tables)
-Snowflake staging tables --> DBT --> Snowflake (mart tables/dim_tables)
+Snowflake staging tables --> DBT --> Snowflake (mart tables/dim_tables and custome transformations)
 Snowflake (mart tables/dim_tables) --> fact_table
 then report sale (one big table)
 
+**Airbyte**
+An EC2 instance will be spin up. Afterwards, we will install the airbyte instance then access the airbyte application through the EC2 instance public IP on web browser and using the abctl local credentials.
+The source connector will be RDS postgres while the destination connector will be snowflake.
+Afterwards setup the replication setup, and run a full replication of all 15 tables to snowflake as a raw table.
 
-Depending on costs, we may host locally before seeing it can be deployed on EC2
+While running airbyte locally doesn't pose any resource issue, running airbyte online means there maybe some resource (compute, memory) issues. Sometimes this means ensuring kubernetes is installed in the EC2 instance as well, then bouncing the pods responsible for the replications after making the resource adjustment.
+
+**Snowflake-DBT**
+Once the raw data is in snowflakes, we be using data modelling techniques to go through several rounds of transformations.
+From docker perspective, we will draw the package from an existing dbt-snowflake package available in dbt-labs to include on the containers.
+The docker container will be run on ECS cluster will can be triggered anytime or run scheduled through a task definition.
+Logs below and corresponding snowflake data shows the sync happened.
 
 # Breakdown of Tasks
-- Hugo will put together the documents
-- Veda will determine how we can break this source schema to fact table and schema
+
 
 
 
 
 # Setting up the environment
 
-## Cloning the project
-```
-> git init
-
-
-## Virtual Environment (conda)
-1. Open the terminal and create a conda environment
-```
-> conda create -n project1 python=3.9
-```
-
-2. Activate the conda env
-```
-> conda activate project1
-```
-
-3. Install the requirements in project1 conda environment
-```
-> pip install -r requirements.txt
-```
-
-4. entry point for pythonetl 
-```
-> cd app
-> python -m etl_project.pipelines.spotify
-```
-
-5. entry point for sqletl
-```
-> cd app2
-> python extract_load.py
-```
-
-6. entry point for finalized pipeline
-7. 
-```
-> cd app3
-> python -m etl_project.pipelines.spotify
-```
-
-6. docker build and run
-```
- -- Container#1 - python-etl (full-extract)
-> docker build --platform=linux/amd64 -t project1_pythonetl .
-> docker run --env-file .env project1_pythonetl:latest
-
- -- Container#2 - sql-etl(incremental extract)
-> docker build --platform=linux/amd64 -t project1_sqletl .
-> docker run --env-file .env project1_ project1_sqletl:latest
-
- -- Container#3 - python-sql etl(incremental extract)
-> docker build --platform=linux/amd64 -t pythonsql .
-> docker run --env-file .env pythonsql:latest
-```
 
 
 
-## AWS Screenshots
 
-To be added
+## ELT Screenshots
 
 **Dataset loaded in RDS**
+![](images/11-16-2024%RDS%Database.jpg)
 
-
-
-**Scheduled Task in ECS**
-
+**ECS Cluster**
+![](images/11-16-2024%ECS%Cluster.jpg)
 
 **Container Image in ECR**
+![](images/11-16-2024%ECR%Repository.jpg)
 
+**EC2 Airbyte Data Ingestion from Postgres to Snowflake Succesful**
+![](images/11-15-2024%Snowflake_Ingestion_Successful.jpg)
 
-**IAM Created Role**
+**ECS Logs showing Docker DBT-Snowflake being run on ECS**
+Snowflake Query History shows recently run after ECS task to run snowflake-dbt docker file on AWS is triggered
+![](images/11-16-2024%snowflake-dbt_docker%runs%on%ECS.jpg)
 
+Logs showing the successul run of snowflake-dbt docker container on ECS
+![](images/11-16-2024%ECS%Log%Part%1.jpg)
 
-S3 Bucket containing env file
+![](images/11-16-2024%ECS%Log%Part%2.jpg)
+
+![](images/11-16-2024%ECS%Log%Part%3.jpg)
+
 
 
 
