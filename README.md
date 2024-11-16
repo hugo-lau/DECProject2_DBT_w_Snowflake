@@ -76,27 +76,27 @@ Logs below and corresponding snowflake data shows the sync happened.
 ## ELT Screenshots
 
 **Dataset loaded in RDS**
-![](images/11-16-2024%RDS%Database.jpg)
+![](images/11-16-2024%20RDS%20Database.jpg)
 
 **ECS Cluster**
-![](images/11-16-2024%ECS%Cluster.jpg)
+![](images/11-16-2024%20ECS%20Cluster.jpg)
 
 **Container Image in ECR**
-![](images/11-16-2024%ECR%Repository.jpg)
+![](images/11-16-2024%20ECR%20Repository.jpg)
 
 **EC2 Airbyte Data Ingestion from Postgres to Snowflake Succesful**
-![](images/11-15-2024%Snowflake_Ingestion_Successful.jpg)
+![](images/11-15-2024%20Snowflake_Ingestion_Successful.jpg)
 
 **ECS Logs showing Docker DBT-Snowflake being run on ECS**
 Snowflake Query History shows recently run after ECS task to run snowflake-dbt docker file on AWS is triggered
-![](images/11-16-2024%snowflake-dbt_docker%runs%on%ECS.jpg)
+![](images/11-16-2024%20snowflake-dbt_docker%20runs%20on%20ECS.jpg)
 
 Logs showing the successul run of snowflake-dbt docker container on ECS
-![](images/11-16-2024%ECS%Log%Part%1.jpg)
+![](images/11-16-2024%20ECS%20Log%20Part%201.jpg)
 
-![](images/11-16-2024%ECS%Log%Part%2.jpg)
+![](images/11-16-2024%20ECS%20Log%20Part%202.jpg)
 
-![](images/11-16-2024%ECS%Log%Part%3.jpg)
+![](images/11-16-2024%20ECS%20Log%20Part%203.jpg)
 
 
 
