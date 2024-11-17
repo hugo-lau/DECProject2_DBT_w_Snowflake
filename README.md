@@ -13,15 +13,41 @@ Additionally, custom transformation techniques will be used to answer specific b
 
 Both Airbyte replication and Docker dbt-snowflake data can be triggered manually online or scheduled one after the other.
 
+
+<img width="713" alt="image" src="https://github.com/user-attachments/assets/be8ec35f-1f7e-4d29-a3c9-0c99f0200561">
+
+
+**The Data Engineering team get to work...**
+
+<img width="703" alt="image" src="https://github.com/user-attachments/assets/c46f806e-6dec-4083-9b44-b02b5ac2a381">
+
+
+**ER Diagram:**
+
+![DVD_Rental_ERD_Project2 drawio](https://github.com/user-attachments/assets/9b951af4-96b0-457b-9588-12293828423d)
+
+
+**Preset Dashboard:**
+
+- Use report-rental dataset for ad-hoc analysis.
+- Use the other datasets for creating pre-defined dashboards 
+
+<img width="578" alt="image" src="https://github.com/user-attachments/assets/399371ec-af08-407e-b530-969c6e9f945b">
+
+
+
+![screenshot](https://github.com/user-attachments/assets/6b5f63a5-dfa7-4ac2-a495-a5f2a97cd5f8)
+
+
 ## Consumers
-The end users would be analysts from the sales and marketing team who will need to generate sales and customer reports.
+The end users would be the data analysts from the sales and marketing team who will need to generate sales and customer reports.
 
 ## Questions
 > - which city and country where most movies are rented out?
-> - Which year are the most movies rented out?
-> - rental amount associated with each rental
-> - income related to areas of movies
-> - which movie types made the most type of money
+> - Which categories have the highest rentals?
+> - Which are the more popular actors?
+> - Who are our most loyal customers?
+> - Which months in the year have the highest and lowest rentals?
 
 ## Source datasets
 
