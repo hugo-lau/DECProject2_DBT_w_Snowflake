@@ -27,6 +27,13 @@ Both Airbyte replication and Docker dbt-snowflake data can be triggered manually
 
 **Preset Dashboard:**
 
+- Use report-rental dataset for ad-hoc analysis.
+- Use the other datasets for creating pre-defined dashboards 
+
+<img width="578" alt="image" src="https://github.com/user-attachments/assets/399371ec-af08-407e-b530-969c6e9f945b">
+
+
+
 ![screenshot](https://github.com/user-attachments/assets/6b5f63a5-dfa7-4ac2-a495-a5f2a97cd5f8)
 
 
