@@ -19,11 +19,13 @@ Both Airbyte replication and Docker dbt-snowflake data can be triggered manually
 
 **The Data Engineering team get to work...**
 
-<img width="701" alt="image" src="https://github.com/user-attachments/assets/d84d81ff-3191-4885-a520-5a9a296a4c6f">
+<img width="703" alt="image" src="https://github.com/user-attachments/assets/c46f806e-6dec-4083-9b44-b02b5ac2a381">
+
 
 **ER Diagram:**
 
-![DVD_Rental_Project2_ERD drawio](https://github.com/user-attachments/assets/1e70b6e9-71fc-49c4-9563-24c8099d6b35)
+![DVD_Rental_ERD_Project2 drawio](https://github.com/user-attachments/assets/9b951af4-96b0-457b-9588-12293828423d)
+
 
 **Preset Dashboard:**
 
