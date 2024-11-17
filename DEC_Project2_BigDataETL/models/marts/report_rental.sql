@@ -1,4 +1,4 @@
---one big table
+--one big table for entire data model
 
 select
     {{ dbt_utils.star(from=ref('fact_payment'), relation_alias='fact_payment', except=[

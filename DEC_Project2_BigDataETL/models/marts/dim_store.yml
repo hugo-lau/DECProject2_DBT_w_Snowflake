@@ -1,0 +1,18 @@
+version: 2
+models:
+  - name: dim_store
+    description: "Dimension table containing store details along with staff, address, city, and country information."
+    columns:
+      - name: staff_key
+        description: "Unique surrogate key for each staff member."
+        tests:
+          - unique
+          - not_null
+      - name: staff_name
+        description: "Full name of the staff member."
+        tests:
+          - not_null
+      - name: staff_active
+        description: "Indicates whether the staff member is active."
+        tests:
+          - not_null

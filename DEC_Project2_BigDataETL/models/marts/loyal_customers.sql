@@ -11,9 +11,9 @@ WITH customer_rentals AS (
         COUNT(r.rental_id) AS rental_count
     FROM
         {{ ref('rental') }} r
-    WHERE
-        r.rental_date >= '2005-01-01'
-        AND r.rental_date < '2006-01-01'
+   -- WHERE
+   --     r.rental_date >= '2005-01-01'
+   --     AND r.rental_date < '2006-01-01'
     GROUP BY
         r.customer_id
 ),

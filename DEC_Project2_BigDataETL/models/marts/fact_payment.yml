@@ -1,0 +1,38 @@
+version: 2
+models:
+  - name: fact_payment
+    description: "Fact table for rental and payment details"
+    columns:
+      - name: payment_key
+        description: "Unique surrogate key for each payment"
+        tests:
+          - unique
+          - not_null
+      - name: customer_key
+        description: "Foreign key to the customer"
+        tests:
+          - not_null
+      - name: film_key
+        description: "Foreign key to the film"
+        tests:
+          - not_null
+      - name: staff_key
+        description: "Foreign key to the staff"
+        tests:
+          - not_null
+      - name: rental_id
+        description: "Rental ID for measuring rental"
+        tests:
+          - not_null
+      - name: revenue
+        description: "The amount paid for the rental"
+        tests:
+          - not_null
+      - name: payment_date
+        description: "The date the payment was made"
+        tests:
+          - not_null
+      - name: rental_date
+        description: "The date the rental took place"
+        tests:
+          - not_null
